@@ -66,11 +66,24 @@ else
 fi
 
 # If a Wrangler version is detected as input
+if [ "$INPUT_WRANGLERBETA" == "true" ]
+then
+  PACKAGE_NAME="wrangler"
+else
+  PACKAGE_NAME="@cloudflare/wrangler"
+fi
+
+# If a Wrangler version is detected as input
 if [ -z "$INPUT_WRANGLERVERSION" ]
 then
-  npm i @cloudflare/wrangler -g
+  if [ "$INPUT_WRANGLERBETA" == "true" ]
+  then
+    npm i "$PACKAGE_NAME/beta" -g
+  else
+    npm i "$PACKAGE_NAME" -g
+  fi
 else
-  npm i "@cloudflare/wrangler@$INPUT_WRANGLERVERSION" -g
+  npm i "$PACKAGE_NAME@$INPUT_WRANGLERVERSION" -g
 fi
 
 # If a working directory is detected as input

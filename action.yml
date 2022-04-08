@@ -19,6 +19,9 @@ inputs:
     description: "The relative path which Wrangler commands should be run from"
   wranglerVersion:
     description: "The version of Wrangler you'd like to use to publish your Workers project"
+  wranglerBeta:
+    description: "Set to true to install the Wrangler beta package.  Defaults to false."
+    required: false
   secrets:
     description: "A new line deliminated string of environment variable names that should be configured as Worker secrets"
     required: false

@@ -69,6 +69,18 @@ jobs:
         environment: 'production'
 ```
 
+To use the Wrangler 2 beta package `wrangler/beta`, pass `true` to the input `wranglerBeta`. Optionally pass the `wranglerVersion` to specify the exact `wrangler` version to use
+
+```yaml
+jobs:
+  deploy:
+    steps:
+      uses: cloudflare/wrangler-action@1.3.0
+      with:
+        apiToken: ${{ secrets.CF_API_TOKEN }}
+        wranglerBeta: true
+```
+
 If you need to install a specific version of Wrangler to use for deployment, you can also pass the input `wranglerVersion` to install a specific version of Wrangler from NPM. This should be a [SemVer](https://semver.org/)-style version number, such as `1.6.0`:
 
 ```yaml
